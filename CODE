@@ -11,8 +11,8 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Light grey background color */
-            color: #333; /* Dark grey text color */
+            background-color: #f0f0f0; 
+            color: #333; 
             transition: background-color 0.5s, color 0.5s;
         }
 
@@ -20,7 +20,7 @@
             color: white;
             text-align: center;
             padding: 1em;
-            background-color: #4c2b80; /* Dark purple header background color */
+            background-color: #4c2b80; 
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
@@ -28,7 +28,7 @@
         }
 
         nav {
-            background-color: #333; /* Dark grey background for tabs and search bar */
+            background-color: #333; 
             padding: 10px;
             display: flex;
             justify-content: center;
@@ -45,22 +45,22 @@
             padding: 10px 15px;
             margin: 0 5px;
             border-radius: 5px;
-            border: 2px solid #555; /* Border color for tabs */
+            border: 2px solid #555; 
             transition: background-color 0.3s ease;
         }
 
         .tab-line a:hover {
-            background-color: #555; /* Darker grey on hover */
+            background-color: #555; 
         }
 
         .form-box {
-            width: 90%; /* Updated width to match Instagram login form size */
-            max-width: 400px; /* Added max-width to limit form width */
+            width: 90%; 
+            max-width: 400px; 
             margin: 20px auto;
             padding: 20px;
-            border: 2px solid #ffffff; /* Neo light style border */
+            border: 2px solid #ffffff; 
             border-radius: 10px;
-            background-color: rgba(255, 255, 255, 0.9); /* White background with transparency */
+            background-color: rgba(255, 255, 255, 0.9); 
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
@@ -91,10 +91,10 @@
         }
 
         button {
-            background-color: #4c2b80; /* Dark purple button color */
+            background-color: #4c2b80; 
             color: white;
             padding: 10px 20px;
-            border: 2px solid #4c2b80; /* Dark purple border */
+            border: 2px solid #4c2b80; 
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
@@ -102,7 +102,7 @@
         }
 
         button:hover {
-            background-color: #2c1a50; /* Darker purple on hover */
+            background-color: #2c1a50; 
         }
 
         .hidden {
@@ -130,7 +130,7 @@
         </div>
         <div>
             <button onclick="toggleDarkMode()">
-                <i id="darkModeIcon" class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+                <i id="darkModeIcon" class="fas fa-moon"></i> 
             </button>
         </div>
     </header>
@@ -146,17 +146,15 @@
 
     <div id="loginSignup" class="form-box">
         <h2>Login/Signup</h2>
-        <!-- Login form -->
+
         <form id="loginForm" onsubmit="checkLogin(); return false;">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
             <button type="submit">Login</button>
-            <p>Don't have an account? <a href="#" onclick="showSignupForm()">Sign up</a>.</p>
         </form>
 
-        <!-- Signup form -->
         <form id="signupForm" class="hidden" onsubmit="signup(); return false;">
             <label for="newUsername">New Username:</label>
             <input type="text" id="newUsername" name="newUsername" required>
@@ -168,7 +166,7 @@
 
     <div id="clueOrganization" class="form-box hidden">
         <h2>Clue Organization</h2>
-        <!-- Add new clues form goes here -->
+
         <form id="addClueForm" onsubmit="addClue(); return false;">
             <label for="personName">Name:</label>
             <input type="text" id="personName" name="personName" required>
@@ -186,7 +184,7 @@
                 <option value="physicalEvidence">Physical Evidence</option>
                 <option value="witnessStatement">Witness Statement</option>
                 <option value="observation">Observation</option>
-                <!-- Add more categories as needed -->
+
             </select>
             <label for="dateDiscovered">Date Discovered:</label>
             <input type="date" id="dateDiscovered" name="dateDiscovered" required>
@@ -202,7 +200,7 @@
 
     <div id="peopleTracker" class="form-box hidden">
         <h2>People Tracker</h2>
-        <!-- Create person profile form goes here -->
+
         <form id="createPersonForm" onsubmit="searchPerson(); return false;">
             <label for="searchPersonName">Search Person by Name:</label>
             <input type="text" id="searchPersonName" name="searchPersonName" required>
@@ -214,7 +212,7 @@
 
     <div id="dateTracker" class="form-box hidden">
         <h2>Date Tracker</h2>
-        <!-- Search by date form goes here -->
+
         <form id="searchByDateForm" onsubmit="searchByDate(); return false;">
             <label for="searchDate">Search by Date:</label>
             <input type="date" id="searchDate" name="searchDate" required>
@@ -262,16 +260,13 @@
         }
 
         function showSection(sectionId) {
-            // Hide all sections
             document.getElementById('loginSignup').classList.add('hidden');
             document.getElementById('clueOrganization').classList.add('hidden');
             document.getElementById('peopleTracker').classList.add('hidden');
             document.getElementById('dateTracker').classList.add('hidden');
 
-            // Show the selected section
             document.getElementById(sectionId).classList.remove('hidden');
 
-            // Show/hide tabs based on the section
             if (sectionId === 'loginSignup') {
                 document.querySelectorAll('#tabs a').forEach(tab => tab.classList.add('hidden'));
             } else {
@@ -280,17 +275,16 @@
         }
 
         function checkLogin() {
-            // Check login credentials against specified users
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
 
             const validUsers = {
                 'Abhinav': '123',
                 'Prakash': '321',
+
             };
 
             if (validUsers[username] === password) {
-                // Show the Clue Organization section after successful login
                 showSection('clueOrganization');
             } else {
                 alert('Login failed. Please try again or sign up.');
@@ -298,25 +292,17 @@
         }
 
         function showSignupForm() {
-            // Hide login form and show signup form
             document.getElementById('loginForm').classList.add('hidden');
             document.getElementById('signupForm').classList.remove('hidden');
         }
 
         function signup() {
-            const newUsername = document.getElementById('newUsername').value;
-            const newPassword = document.getElementById('newPassword').value;
-
-            // Store new user details (e.g., in local storage)
-            // Here, I'm just displaying an alert for demonstration
             alert('Signup successful! Please login to access other sections.');
 
-            // Show login form after successful signup
-            showSection('loginSignup');
+            showSection('clueOrganization');
         }
 
         function addClue() {
-            // Get values from the form and create a clue object
             const personName = document.getElementById('personName').value;
             const gender = document.getElementById('gender').value;
             const address = document.getElementById('address').value;
@@ -324,7 +310,7 @@
             const category = document.getElementById('category').value;
             const dateDiscovered = document.getElementById('dateDiscovered').value;
             const description = document.getElementById('description').value;
-            const evidencePhoto = document.getElementById('evidencePhoto').files[0]; // Updated to get file object
+            const evidencePhoto = document.getElementById('evidencePhoto').files[0]; 
 
             const clue = {
                 personName,
@@ -334,13 +320,11 @@
                 category,
                 dateDiscovered,
                 description,
-                evidencePhoto // Updated to store file object
+                evidencePhoto 
             };
 
-            // Add the clue to the clues database
             cluesDatabase.push(clue);
 
-            // Clear the form fields
             document.getElementById('personName').value = '';
             document.getElementById('gender').value = '';
             document.getElementById('address').value = '';
@@ -356,10 +340,8 @@
         function searchPerson() {
             const searchName = document.getElementById('searchPersonName').value;
 
-            // Search for the person in the clues database
             const personData = cluesDatabase.find(clue => clue.personName === searchName);
 
-            // Display search results in the People Tracker section
             if (personData) {
                 const searchResultsDiv = document.getElementById('searchResults');
                 searchResultsDiv.innerHTML = `<div class="person-card">
@@ -383,10 +365,8 @@
         function searchByDate() {
             const searchDate = document.getElementById('searchDate').value;
 
-            // Filter clues by date
             const cluesByDate = cluesDatabase.filter(clue => clue.dateDiscovered === searchDate);
 
-            // Display search results in the Date Tracker section
             const dateSearchResultsDiv = document.getElementById('dateSearchResults');
             dateSearchResultsDiv.innerHTML = '';
             if (cluesByDate.length > 0) {
